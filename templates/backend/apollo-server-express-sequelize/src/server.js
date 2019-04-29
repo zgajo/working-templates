@@ -4,6 +4,8 @@ const resolvers = require('./resolvers');
 const typeDefs = require('./schema');
 const middleware = require('./middleware');
 
+// TODO: Add sequelize and dataloader
+
 const server = new ApolloServer({
 	context: ({ req }) => ({ request: req }),
 	resolvers,

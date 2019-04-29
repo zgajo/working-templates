@@ -1,0 +1,26 @@
+{
+  "name": "node-interactive-cli",
+  "version": "1.0.0",
+  "description": "- chalk — Terminal string styling done right - figlet — Figlet is a program for making large letters out of ordinary text - inquirer — A collection of common interactive command line user interfaces - shelljs — Portable Unix shell commands for Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zgajo/working-templates.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zgajo/working-templates/issues"
+  },
+  "homepage": "https://github.com/zgajo/working-templates#readme",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "figlet": "^1.2.1",
+    "inquirer": "^6.3.1",
+    "shelljs": "^0.8.3"
+  }
+}

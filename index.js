@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// npm link to make package global - This is only possible because of the first line of the script: #!/usr/bin/env node
 
 const inquirer = require("inquirer");
 const chalk = require("chalk");

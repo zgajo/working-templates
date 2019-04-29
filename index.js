@@ -20,9 +20,10 @@ const init = () => {
 const askQuestions = () => {
   const questions = [
     {
+      choices: ["frontend", "backend"],
       name: "FILENAME",
-      type: "input",
-      message: "What is the name of the file without extension?"
+      type: "list",
+      message: "What template whould do you want?"
     },
     {
       type: "rawlist",

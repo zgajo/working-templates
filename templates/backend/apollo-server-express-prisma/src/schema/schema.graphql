@@ -1,0 +1,5 @@
+# import  Mutation from "../../generated/prisma.graphql"
+
+type Query {
+	hello: String
+}

@@ -3,11 +3,11 @@ const { ApolloServer, makeExecutableSchema } = require('apollo-server');
 const resolvers = require('./resolvers');
 const typeDefs = require('./schema');
 const middleware = require('./middleware');
-
-// TODO: Add sequelize and dataloader
+const models = require('./models');
+const batchFunctions = require('./utils/dataloader_batch_functions');
 
 const server = new ApolloServer({
-	context: ({ req }) => ({ request: req }),
+	context: ({ req }) => ({ batchFunctions: batchFunctions(models), models, request: req }),
 	resolvers,
 	schema: applyMiddleware(makeExecutableSchema({ resolvers, typeDefs }), middleware),
 	typeDefs,

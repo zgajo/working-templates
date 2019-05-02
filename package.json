@@ -18,9 +18,12 @@
   },
   "homepage": "https://github.com/zgajo/working-templates#readme",
   "dependencies": {
+    "apollo-boost": "^0.3.1",
     "chalk": "^2.4.2",
     "figlet": "^1.2.1",
+    "graphql": "^14.2.1",
     "inquirer": "^6.3.1",
+    "react-apollo": "^2.5.5",
     "shelljs": "^0.8.3"
   },
   "bin": {

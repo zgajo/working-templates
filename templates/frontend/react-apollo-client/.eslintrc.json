@@ -1,0 +1,25 @@
+{
+	"env": {
+		"es6": true,
+		"node": true,
+		"jest": true,
+		"browser": true
+	},
+	"parser": "babel-eslint",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		}
+	},
+	"extends": ["eslint:recommended", "plugin:react/recommended"],
+	"rules": {
+		"react/jsx-uses-react": "error",
+		"react/jsx-uses-vars": "error",
+		"no-var": "error",
+		"no-console": "warn",
+		"no-unused-vars": "error",
+		"vars-on-top": "warn",
+		"block-scoped-var": "warn",
+		"sort-keys": "error"
+	}
+}

@@ -26,6 +26,6 @@ All environment variables are located in .env.example. Make sure to add new vari
   - #### Local development
     - npm run dev
   - #### Server
-    - pm2 start bridum-pm2.config.js
+    - pm2 start pm2.config.js
 
 ### Ci/CD

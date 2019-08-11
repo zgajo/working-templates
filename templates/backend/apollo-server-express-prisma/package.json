@@ -1,5 +1,5 @@
 {
-	"name": "bridum-backend",
+	"name": "apollo-server-express-prisma-backend",
 	"version": "0.1.0",
 	"description": "",
 	"main": "src/bin/www/index.js",

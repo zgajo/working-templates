@@ -18,10 +18,10 @@ jobs:
       - run:
           command: |
             if [ "${CIRCLE_BRANCH}" == "dev" ]; then
-              sed -i '1i cd /var/www/bridum/bridum-backend-dev' commands_on_deploy.sh
+              sed -i '1i cd /var/www/EXAMPLE/EXAMPLE-dev' commands_on_deploy.sh
             fi
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              sed -i '1i cd /var/www/bridum/bridum-backend' commands_on_deploy.sh
+              sed -i '1i cd /var/www/EXAMPLE/EXAMPLE-backend' commands_on_deploy.sh
             fi
       - persist_to_workspace:
           root: ~/repo
@@ -43,7 +43,7 @@ jobs:
           # at: /tmp #if pesisting /tmp folder
       - add_ssh_keys:
           fingerprints:
-            - 'cf:d2:47:5e:89:12:5c:15:ee:45:40:b5:d6:dd:0a:43'
+            - YOUR_FINGERPRINT
       - run: ssh-keyscan -p $SSH_PORT $SSH_HOST >> ~/.ssh/known_hosts # add server ssh response to known hosts
       - deploy:
           name: Deploy Over SSH

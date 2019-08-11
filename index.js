@@ -51,9 +51,11 @@ const askQuestions = () => {
 
 function createDirectoryContents(templatePath, newProjectPath) {
   const filesToCreate = fs.readdirSync(templatePath);
+  console.log(filesToCreate);
 
   filesToCreate.forEach(file => {
     const origFilePath = `${templatePath}/${file}`;
+    console.log(file);
 
     if (file === "node_modules") {
       return;
@@ -71,7 +73,6 @@ function createDirectoryContents(templatePath, newProjectPath) {
       const contents = fs.readFileSync(origFilePath, "utf8");
 
       const writePath = `${CURR_DIR}/${newProjectPath}/${file}`;
-      console.log(file);
       fs.writeFileSync(writePath, contents, "utf8");
     } else if (stats.isDirectory()) {
       fs.mkdirSync(`${CURR_DIR}/${newProjectPath}/${file}`);

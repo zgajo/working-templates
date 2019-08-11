@@ -85,7 +85,9 @@ function createDirectoryContents(templatePath, newProjectPath) {
 }
 
 const success = folderPath => {
-  console.log(chalk.white.bgGreen.bold(`Done! File created at ${folderPath}`));
+  console.log(
+    chalk.white.bgGreen.bold(`Done! File created at ${__dirname}${folderPath}`)
+  );
 };
 
 const run = async () => {

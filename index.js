@@ -51,11 +51,9 @@ const askQuestions = () => {
 
 function createDirectoryContents(templatePath, newProjectPath) {
   const filesToCreate = fs.readdirSync(templatePath);
-  console.log(filesToCreate);
 
   filesToCreate.forEach(file => {
     const origFilePath = `${templatePath}/${file}`;
-    console.log(file);
 
     if (file === "node_modules") {
       return;

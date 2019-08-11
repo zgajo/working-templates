@@ -5,13 +5,20 @@
 		"jest": true
 	},
 	"parser": "babel-eslint",
-	"extends": "eslint:recommended",
+	"plugins": ["security"],
+	"extends": ["eslint:recommended", "plugin:node/recommended", "plugin:security/recommended"],
 	"rules": {
 		"no-var": "error",
 		"no-console": "warn",
 		"no-unused-vars": "error",
 		"vars-on-top": "warn",
 		"block-scoped-var": "warn",
-		"sort-keys": "error"
+		"sort-keys": "error",
+		"curly": "error",
+		"no-nested-ternary": "warn",
+		"no-unneeded-ternary": "warn",
+		"no-unexpected-multiline": "error",
+		"global-require": "error",
+		"eqeqeq": "error"
 	}
 }

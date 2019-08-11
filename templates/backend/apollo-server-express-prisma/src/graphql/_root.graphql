@@ -1,0 +1,20 @@
+# Prisma imports
+# import  PageInfo from "../prisma-client/prisma.graphql"
+
+# Need to import our schemas, so that graphql-import could know that
+# imported type from prisma.graphql is used in other schemas
+
+# import * from "./user/user.graphql"
+# import * from "./review/review.graphql"
+# import * from "./product/product.graphql"
+
+
+type Query {
+	_empty: String
+}
+type Mutation {
+	_empty: String
+}
+type Subscription {
+	_empty: String
+}

@@ -1,0 +1,14 @@
+# reviews service
+type Review {
+	body: String
+	author: User
+	product: Product
+}
+
+extend type User {
+	reviews: [Review]
+}
+
+extend type Product {
+	reviews: [Review]
+}

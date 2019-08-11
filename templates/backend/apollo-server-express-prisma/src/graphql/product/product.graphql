@@ -1,0 +1,10 @@
+# products service
+extend type Query {
+	topProducts(first: Int = 5): [Product]
+}
+
+type Product {
+	upc: String!
+	name: String!
+	price: Int
+}

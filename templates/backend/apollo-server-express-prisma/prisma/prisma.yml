@@ -1,14 +1,10 @@
-endpoint: ${env:PRISMA_SERVER}:${env:PRISMA_PORT}
+endpoint: ${env:PRISMA_SERVER}:${env:PRISMA_PORT}/${env:PRISMA_SERVICE}/${env:NODE_ENV}
 datamodel: datamodel.prisma
-# secret: ${env:PRISMA_API_SECRET}
+secret: ${env:PRISMA_API_SECRET}
 
 generate:
   - generator: javascript-client
-    output: ../generated/prisma-client/
-  - generator: graphql-schema
-    output: ../generated/prisma.graphql
-
+    output: ../src/prisma-client/
 hooks:
   post-deploy:
-    - echo Deploying to - ${env:PRISMA_SERVER}:${env:PRISMA_PORT}
-    - prisma generate
+    - echo Deploying to - ${env:PRISMA_SERVER}:${env:PRISMA_PORT}/${env:PRISMA_SERVICE}/${env:NODE_ENV}

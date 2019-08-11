@@ -1,0 +1,69 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+
+defaults: &defaults
+  working_directory: ~/repo
+  docker:
+    - image: circleci/node:10.15.1
+
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - run: npm install
+      - run:
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "dev" ]; then
+              sed -i '1i cd /var/www/bridum/bridum-backend-dev' commands_on_deploy.sh
+            fi
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              sed -i '1i cd /var/www/bridum/bridum-backend' commands_on_deploy.sh
+            fi
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - commands_on_deploy.sh
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - .ssh
+
+  deploy:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/repo
+      - attach_workspace:
+          at: ~/
+          # at: /tmp #if pesisting /tmp folder
+      - add_ssh_keys:
+          fingerprints:
+            - 'cf:d2:47:5e:89:12:5c:15:ee:45:40:b5:d6:dd:0a:43'
+      - run: ssh-keyscan -p $SSH_PORT $SSH_HOST >> ~/.ssh/known_hosts # add server ssh response to known hosts
+      - deploy:
+          name: Deploy Over SSH
+          command: |
+            cat ~/repo/commands_on_deploy.sh | ssh -p $SSH_PORT $SSH_USER@$SSH_HOST
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - master
+                - dev
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master
+                - dev

@@ -7,9 +7,9 @@ const isAuthenticated = rule()(async (parent, args, ctx) => {
 
 // Permissions
 const permissions = shield({
-	Query: {
-		hello: isAuthenticated,
-	},
+	// Query: {
+	// 	hello: isAuthenticated,
+	// },
 });
 
 module.exports = permissions;

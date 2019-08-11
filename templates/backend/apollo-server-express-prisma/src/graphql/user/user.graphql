@@ -1,0 +1,9 @@
+type User {
+	id: ID!
+	username: String!
+}
+
+# accounts service
+extend type Query {
+	me: User
+}
